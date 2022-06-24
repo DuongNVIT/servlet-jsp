@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.body-wrapper {
+	display: flex;
+	margin-top: 60px;
+	justify-content: center;
+	align-items:center;
+	width: 100%;
+}
+
+.body-inner {
+	margin-top: 20px;
+}
+
+table, th, td {
+	border: 1px solid;
+	padding: 10px 40px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+tr {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	padding: 20px;
+}
+
+.avatar {
+	display: block;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+}
+
+.name {
+	
+}
