@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.body-wrapper {
+	display: flex;
+	margin-top: 60px;
+	justify-content: center;
+	align-items:center;
+	width: 100%;
+}
+
+.body-inner {
+	
+}
+
+table, th, td {
+	border: 1px solid;
+}
+
+
+.avatar {
+	display: block;
+	height: 30px;
+	width: 30px;
+}
+
+.name {
+	font-size: 30px;
+}
