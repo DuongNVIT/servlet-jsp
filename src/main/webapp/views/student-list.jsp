@@ -17,9 +17,12 @@
 
 	<div class="body-wrapper">
 		<div class="body-inner">
-			<div class="add-wrapper">
-				<a class="btn-add" href='<c:url value="/student?action=add"/>'>Add Student</a>
-			</div>
+			<c:if test="${USERMODEL.roleModel.name == 'ADMIN'}">
+				<div class="add-wrapper">
+					<a class="btn-add" href='<c:url value="/student?action=add"/>'>Add
+						Student</a>
+				</div>
+			</c:if>
 			<table>
 				<tr>
 					<th>ID</th>
@@ -31,7 +34,9 @@
 					<th>Created By</th>
 					<th>Modified Date</th>
 					<th>Modified By</th>
-					<th>Action</th>
+					<c:if test="${USERMODEL.roleModel.name == 'ADMIN'}">
+						<th>Action</th>
+					</c:if>
 				</tr>
 				<c:forEach var="student" items="${students}">
 					<tr>
@@ -46,14 +51,16 @@
 						<td>${student.createdBy}</td>
 						<td>${student.modifiedDate}</td>
 						<td>${student.modifiedBy}</td>
-						<td>
-							<div class="action">
-								<form action="deleteStudent?id=${student.id}" method="POST">
-									<button class="btn-delete" type="submit">Delete</button>
-								</form>
-								<a class="btn-update" href="updateStudent?id=${student.id}">Update</a>
-							</div>
-						</td>
+						<c:if test="${USERMODEL.roleModel.name == 'ADMIN'}">
+							<td>
+								<div class="action">
+									<form action="deleteStudent?id=${student.id}" method="POST">
+										<button class="btn-delete" type="submit">Delete</button>
+									</form>
+									<a class="btn-update" href="updateStudent?id=${student.id}">Update</a>
+								</div>
+							</td>
+						</c:if>
 					</tr>
 				</c:forEach>
 			</table>

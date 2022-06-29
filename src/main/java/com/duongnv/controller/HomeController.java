@@ -39,15 +39,13 @@ public class HomeController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nameString = request.getParameter("username");
 		String passwordString = request.getParameter("password");
-		
 		UserModel userModel	= userService.findByUsernamePassWordStatus(nameString, passwordString, 1);
-		
 		if(userModel != null) {
 			SessionUtil.getInstance().putValue(request, "USERMODEL", userModel);
-			response.sendRedirect(request.getContextPath() + "/student?action=list");
+			request.setAttribute("USERMODEL", userModel);
+			request.getRequestDispatcher("/student?action=list").forward(request, response);
 		} else {
 			response.sendRedirect(request.getContextPath() + "/login?message=incorrect&alert=fail");
-			System.out.println("Tên đăng nhập hoặc mk không đúng");
 		}
 		
 	}

@@ -26,8 +26,6 @@ public class UpdateStudentController extends HttpServlet {
 	private StudentService studentService;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String idString = request.getParameter("id");
-		System.out.println(27 + " " + idString);
 		Long studentId = Long.parseLong(request.getParameter("id"));
 		StudentModel studentModel = studentService.findById(studentId);
 		request.setAttribute("student", studentModel);
@@ -37,14 +35,10 @@ public class UpdateStudentController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		Long studentId = Long.parseLong(request.getParameter("id"));
-		System.out.println(39 + " " + studentId);
 		StudentModel studentModel = studentService.findById(studentId);
-		String fullname = request.getParameter("fullname");
-		String email = request.getParameter("email");
-		String className = request.getParameter("class");
-		studentModel.setFullName(fullname);
-		studentModel.setEmail(email);
-		studentModel.setClassName(className);
+		studentModel.setFullName(request.getParameter("fullname"));
+		studentModel.setEmail(request.getParameter("email"));
+		studentModel.setClassName(request.getParameter("class"));
 		studentModel.setModifiedBy(((UserModel) SessionUtil.getInstance().getValue(request, "USERMODEL")).getUsername());
 		studentModel.setModifiedDate(new Timestamp(System.currentTimeMillis()));
 		studentService.update(studentModel);

@@ -19,11 +19,7 @@
 			<div class="user">
 
 				<h1 class="welcome">
-					Welcome
-					<%
-						String name = ((UserModel) session.getAttribute("USERMODEL")).getFullname();
-						out.print(name);
-					%>
+					Welcome ${USERMODEL.roleModel.name}: ${USERMODEL.fullname}
 				</h1>
 				<a class="btn-logout" href='<c:url value="/logout"/>'>Logout</a>
 			</div>

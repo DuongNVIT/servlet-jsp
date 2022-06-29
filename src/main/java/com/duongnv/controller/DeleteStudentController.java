@@ -22,15 +22,12 @@ public class DeleteStudentController extends HttpServlet {
 	private StudentService studentService;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String studentId = request.getParameter("id");
 		studentService.delete(Long.parseLong(studentId));
 		response.sendRedirect(request.getContextPath() + "/student?action=list");
 	}
-
 }

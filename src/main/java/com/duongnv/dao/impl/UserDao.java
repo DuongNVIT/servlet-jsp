@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.duongnv.dao.IUserDao;
+import com.duongnv.model.RoleModel;
 import com.duongnv.model.UserModel;
 
 public class UserDao extends AbstractDao implements IUserDao {
@@ -32,14 +33,12 @@ public class UserDao extends AbstractDao implements IUserDao {
 				userModel.setUsername(resultSet.getString("username"));
 				userModel.setPassword(resultSet.getString("password"));
 				userModel.setFullname(resultSet.getString("fullname"));
-				System.out.println(33 + " " + resultSet.getLong("id"));
-				System.out.println(resultSet.getString("username"));
-				System.out.println(resultSet.getString("password"));
-				System.out.println(resultSet.getString("fullname"));
+				RoleModel roleModel = new RoleModel();
+				roleModel.setName(resultSet.getString("name"));
+				roleModel.setCode(resultSet.getString("code"));
+				userModel.setRoleModel(roleModel);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Có lỗi");
 			e.printStackTrace();
 			return null;
 		}

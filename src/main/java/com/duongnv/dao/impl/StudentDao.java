@@ -15,7 +15,7 @@ public class StudentDao extends AbstractDao implements IStudentDao {
 
 	@Override
 	public List<StudentModel> findAll() {
-		List<StudentModel> studentModels = new ArrayList<StudentModel>();
+		List<StudentModel> studentModels = new ArrayList<>();
 		StringBuilder sql = new StringBuilder("select * from student");
 		Connection connection = getConnection();
 		PreparedStatement sttm = null;
@@ -24,8 +24,6 @@ public class StudentDao extends AbstractDao implements IStudentDao {
 			sttm = connection.prepareStatement(sql.toString());
 			resultSet = sttm.executeQuery();
 			while (resultSet.next()) {
-				System.out.println(resultSet.getLong("id"));
-				System.out.println(resultSet.getString("fullname"));
 				StudentModel studentModel = new StudentModel();
 				studentModel.setId(resultSet.getLong("id"));
 				studentModel.setFullName(resultSet.getString("fullname"));
@@ -140,5 +138,4 @@ public class StudentDao extends AbstractDao implements IStudentDao {
 			e.printStackTrace();
 		}
 	}
-
 }

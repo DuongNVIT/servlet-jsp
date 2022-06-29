@@ -21,6 +21,5 @@ public class AbstractDao {
 			System.out.println("21 Lỗi");
 			return null;
 		}
-		
 	}
 }

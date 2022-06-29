@@ -17,7 +17,7 @@
 		<div class="body-inner">
 			<h1 class="add-header">Add Student</h1>
 			<c:if test="${not empty student}">
-				<form class="add-form" action="updateStudent" method="POST">
+				<form class="add-form" action="updateStudent" enctype="multipart/form-data" method="POST">
 					<div class="form-group">
 						<label class="form-label">Full name:</label> <input
 							class="form-input" type="text" name="fullname"
@@ -26,22 +26,28 @@
 					<div class="form-group">
 						<label class="form-label">Email:</label> <input class="form-input"
 							type="email" name="email" placeholder="Enter your email address"
-							value="${student.email }" />
+							value="${student.email}" />
 					</div>
 					<div class="form-group">
 						<label class="form-label">Class name:</label> <input
 							class="form-input" type="text" name="class"
 							placeholder="Enter your class name" value="${student.className}" />
 					</div>
-					<input type="hidden" name="id" value="${student.id}"/>
+					<input type="hidden" name="id" value="${student.id}" />
 					<div class="btn-wrapper">
-						<input class="btn-submit" type="submit" value="Update"/>
+						<input class="btn-submit" type="submit" value="Update" />
 					</div>
 				</form>
 
 			</c:if>
 			<c:if test="${empty student }">
-				<form class="add-form" action="student?action=add" method="POST">
+				<form class="add-form" action="student" enctype="multipart/form-data" method="POST">
+					<div class="form-group">
+						<label for="input-file" class="form-label">Avatar:</label> <input
+							id="input-file" 
+							class="form-input" type="file" name="avatar" style="display:  none"
+							placeholder="Enter your full name" value="${student.fullName }" />
+					</div>
 					<div class="form-group">
 						<label class="form-label">Full name:</label> <input
 							class="form-input" type="text" name="fullname"
@@ -57,7 +63,7 @@
 							placeholder="Enter your class name" />
 					</div>
 					<div class="btn-wrapper">
-						<input class="btn-submit" type="submit" value="Add"/>
+						<input class="btn-submit" type="submit" value="Add" />
 					</div>
 				</form>
 			</c:if>
