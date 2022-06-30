@@ -26,7 +26,9 @@ public class UpdateStudentController extends HttpServlet {
 	private StudentService studentService;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Long studentId = Long.parseLong(request.getParameter("id"));
+		String idString = request.getParameter("id");
+		System.out.println(idString);
+		Long studentId = Long.parseLong(idString);
 		StudentModel studentModel = studentService.findById(studentId);
 		request.setAttribute("student", studentModel);
 		request.getRequestDispatcher("/views/add-student.jsp").forward(request, response);

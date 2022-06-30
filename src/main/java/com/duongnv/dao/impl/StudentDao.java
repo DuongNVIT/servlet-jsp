@@ -45,8 +45,8 @@ public class StudentDao extends AbstractDao implements IStudentDao {
 
 	@Override
 	public StudentModel save(StudentModel studentModel) {
-		StringBuilder sql = new StringBuilder("insert into student(fullname, email, class, createdby, createddate) ");
-		sql.append("values (?, ?, ?, ?, ?)");
+		StringBuilder sql = new StringBuilder("insert into student(fullname, email, class, createdby, createddate, avatar) ");
+		sql.append("values (?, ?, ?, ?, ?, ?)");
 		Connection connection = getConnection();
 		PreparedStatement sttm = null;
 		ResultSet resultSet = null;
@@ -57,6 +57,7 @@ public class StudentDao extends AbstractDao implements IStudentDao {
 			sttm.setString(3, studentModel.getClassName());
 			sttm.setString(4, studentModel.getCreatedBy());
 			sttm.setTimestamp(5, studentModel.getCreatedDate());
+			sttm.setString(4, studentModel.getAvatar());
 			sttm.executeUpdate();
 			resultSet = sttm.getGeneratedKeys();
 			while (resultSet.next()) {

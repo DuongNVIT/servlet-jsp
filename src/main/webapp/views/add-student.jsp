@@ -17,7 +17,7 @@
 		<div class="body-inner">
 			<h1 class="add-header">Add Student</h1>
 			<c:if test="${not empty student}">
-				<form class="add-form" action="updateStudent" enctype="multipart/form-data" method="POST">
+				<form class="add-form" action="updateStudent" enctype='multipart/form-data' method="POST">
 					<div class="form-group">
 						<label class="form-label">Full name:</label> <input
 							class="form-input" type="text" name="fullname"
@@ -41,12 +41,12 @@
 
 			</c:if>
 			<c:if test="${empty student }">
-				<form class="add-form" action="student" enctype="multipart/form-data" method="POST">
+				<form class="add-form" action="student" enctype='multipart/form-data' method="POST">
 					<div class="form-group">
 						<label for="input-file" class="form-label">Avatar:</label> <input
 							id="input-file" 
-							class="form-input" type="file" name="avatar" style="display:  none"
-							placeholder="Enter your full name" value="${student.fullName }" />
+							class="form-input" type="file" name="avatar"
+							placeholder="Enter your full name" value="${student.fullName}" />
 					</div>
 					<div class="form-group">
 						<label class="form-label">Full name:</label> <input

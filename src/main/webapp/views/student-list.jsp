@@ -42,7 +42,7 @@
 					<tr>
 						<td>${student.id}</td>
 						<td><img class="avatar"
-							src="https://blogphanmem.vn/wp-content/uploads/2021/12/0baa4ce4a38e06e825013a8b6f858528.jpeg" />
+							src="${student.avatar}" />
 						</td>
 						<td class="name">${student.fullName}</td>
 						<td>${student.email}</td>
