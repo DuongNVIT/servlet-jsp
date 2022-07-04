@@ -57,7 +57,7 @@ public class StudentDao extends AbstractDao implements IStudentDao {
 			sttm.setString(3, studentModel.getClassName());
 			sttm.setString(4, studentModel.getCreatedBy());
 			sttm.setTimestamp(5, studentModel.getCreatedDate());
-			sttm.setString(4, studentModel.getAvatar());
+			sttm.setString(6, studentModel.getAvatar());
 			sttm.executeUpdate();
 			resultSet = sttm.getGeneratedKeys();
 			while (resultSet.next()) {

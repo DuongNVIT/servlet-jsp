@@ -31,6 +31,7 @@ public class AuthorizationFilter implements Filter{
 		
 		String url = httpServletRequest.getRequestURI().toString();
 		System.out.println("33: " + url);
+		
 		if(url.contains("/login")) {
 			chain.doFilter(httpServletRequest, httpServletResponse);
 			return;

@@ -36,6 +36,7 @@ public class UpdateStudentController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		System.out.println(39 + " " + request.getParameter("id"));
 		Long studentId = Long.parseLong(request.getParameter("id"));
 		StudentModel studentModel = studentService.findById(studentId);
 		studentModel.setFullName(request.getParameter("fullname"));

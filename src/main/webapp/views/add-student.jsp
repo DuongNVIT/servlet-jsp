@@ -17,7 +17,7 @@
 		<div class="body-inner">
 			<h1 class="add-header">Add Student</h1>
 			<c:if test="${not empty student}">
-				<form class="add-form" action="updateStudent" enctype='multipart/form-data' method="POST">
+				<form class="add-form" action="updateStudent" method="POST">
 					<div class="form-group">
 						<label class="form-label">Full name:</label> <input
 							class="form-input" type="text" name="fullname"
